@@ -18,32 +18,61 @@ PlayState PlayState::m_PlayState;
 
 using namespace std;
 
+cgf::Sprite background;
+
+int qtdHits = 3;
+int qtdTargets = 2;
+
+void PlayState::setSprites(){
+    int aux = MenuState::getSpriteSelecionado();
+    switch(aux){
+        case 1 :{
+            playSprite1.load("data/img/Char14s.png");
+            playSprite2.load("data/img/Char14s.png");
+            break;
+        }case 2 :{
+            playSprite1.load("data/img/Char21.png");
+            playSprite2.load("data/img/Char21.png");
+            break;
+        }case 3 :{
+            playSprite1.load("data/img/Char31.png");
+            playSprite2.load("data/img/Char31.png");
+            break;
+        }case 4 :{
+            playSprite1.load("data/img/Char33.png");
+            playSprite2.load("data/img/Char33.png");
+            break;
+        }case 5 :{
+            playSprite1.load("data/img/Char35.png");
+            playSprite2.load("data/img/Char35.png");
+            break;
+        }default:{
+            playSprite1.load("data/img/Char14s.png");
+            playSprite2.load("data/img/Char14s.png");
+            break;
+        }
+        playSprite1.setOrigin(rand() %500 ,rand() %500);
+        playSprite2.setOrigin(rand() %500 ,rand() %500);
+        playSprite1.setXspeed(5.0);
+        playSprite1.setYspeed(5.0);
+
+        playSprite2.setXspeed(5.0);
+        playSprite2.setYspeed(5.0);
+
+        cout << "aeee " << aux << endl;
+    }
+}
+
 void PlayState::init()
 {
-    playSprite1 = MenuState::getSpriteSelecionado();
-	playSprite1.setPosition(10,100);
-
-    playSprite2.load("data/img/Char01.png");
-	playSprite2.setPosition(10,300);
-
-    playSprite3.load("data/img/Char01.png");
-	playSprite3.setPosition(50,300);
-
-    dirx = 0; // sprite direction: right (1), left (-1)
-    diry = 0; // down (1), up (-1)
-
-    im = cgf::InputManager::instance();
-
-    im->addKeyInput("left", sf::Keyboard::Left);
-    im->addKeyInput("right", sf::Keyboard::Right);
-    im->addKeyInput("up", sf::Keyboard::Up);
-    im->addKeyInput("down", sf::Keyboard::Down);
-    im->addKeyInput("quit", sf::Keyboard::Escape);
-    im->addKeyInput("stats", sf::Keyboard::S);
-    im->addMouseInput("rightclick", sf::Mouse::Right);
+    //fundo
+    background = MenuState::getBackGroundSelecionado();
+    background.setPosition(0,0);
+    setSprites();
 
 	cout << "PlayState: Init" << endl;
 }
+
 
 void PlayState::cleanup()
 {
@@ -69,42 +98,19 @@ void PlayState::handleEvents(cgf::Game* game)
         if(event.type == sf::Event::Closed)
             game->quit();
     }
-
-    dirx = diry = 0;
-
-    if(im->testEvent("left"))
-        dirx = -1;
-
-    if(im->testEvent("right"))
-        dirx = 1;
-
-    if(im->testEvent("up"))
-        diry = -1;
-
-    if(im->testEvent("down"))
-        diry = 1;
-
-    if(im->testEvent("quit") || im->testEvent("rightclick"))
-        game->quit();
-
-    if(im->testEvent("stats"))
-        game->toggleStats();
 }
 
 void PlayState::update(cgf::Game* game)
 {
-    float x = playSprite1.getPosition().x;
-    float y = playSprite1.getPosition().y;
-    x += dirx*5;
-    y += diry*5;
-    playSprite1.setPosition(x,y);
-    player.update(game->getUpdateInterval());
+        playSprite1.update(5.0,true);
+        playSprite2.update(5.0,true);
 }
 
 void PlayState::draw(cgf::Game* game)
 {
     screen = game->getScreen();
+    screen->draw(background);
     screen->draw(playSprite1);
     screen->draw(playSprite2);
-    screen->draw(playSprite3);
+
 }

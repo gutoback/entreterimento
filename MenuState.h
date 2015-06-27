@@ -27,8 +27,12 @@ class MenuState : public cgf::GameState
     void update(cgf::Game* game);
     void draw(cgf::Game* game);
 
-    static cgf::Sprite getSpriteSelecionado(){
+    static int getSpriteSelecionado(){
         return instance()->getSpriteSelecionadoPr();
+    }
+
+    static cgf::Sprite getBackGroundSelecionado(){
+        return instance()->getBackGroundSelecionadoPr();
     }
     // Implement Singleton Pattern
     static MenuState* instance()
@@ -45,8 +49,8 @@ class MenuState : public cgf::GameState
     static MenuState m_MenuState;
     void handleClick(sf::Event clique,cgf::Game* game);
     void handleMenu(cgf::Game* game);
-    cgf::Sprite getSpriteSelecionadoPr();
-
+    int getSpriteSelecionadoPr();
+    cgf::Sprite getBackGroundSelecionadoPr();
 
 };
 

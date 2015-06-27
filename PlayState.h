@@ -50,6 +50,7 @@ class PlayState : public cgf::GameState
     cgf::Sprite player;
     sf::RenderWindow* screen;
     cgf::InputManager* im;
+    void setSprites();
 };
 
 #endif
