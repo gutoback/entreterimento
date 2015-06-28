@@ -1802,7 +1802,7 @@
 	<SFML/System/Time.hpp>
 	<SFML/System/Clock.hpp>
 
-1435382357 c:\users\gutob_000\downloads\mflash-cgf-884aeccc8129\examples\01_movement\menustate.h
+1435457949 c:\users\gutob_000\downloads\mflash-cgf-884aeccc8129\examples\01_movement\menustate.h
 	"GameState.h"
 	"Sprite.h"
 
@@ -1839,7 +1839,7 @@
 
 1432561839 c:\users\gutob_000\downloads\mflash-cgf-884aeccc8129\lib\cgf\include\pugixml\pugiconfig.hpp
 
-1435382714 source:c:\users\gutob_000\downloads\mflash-cgf-884aeccc8129\examples\01_movement\playstate.cpp
+1435456895 source:c:\users\gutob_000\downloads\mflash-cgf-884aeccc8129\examples\01_movement\playstate.cpp
 	<iostream>
 	<cmath>
 	"Game.h"
@@ -1847,7 +1847,7 @@
 	"InputManager.h"
 	"MenuState.h"
 
-1435382762 c:\users\gutob_000\downloads\mflash-cgf-884aeccc8129\examples\01_movement\playstate.h
+1435452175 c:\users\gutob_000\downloads\mflash-cgf-884aeccc8129\examples\01_movement\playstate.h
 	"GameState.h"
 	"Sprite.h"
 	"InputManager.h"
@@ -1856,7 +1856,9 @@
 	<map>
 	<SFML/Graphics.hpp>
 
-1435382849 source:c:\users\gutob_000\downloads\mflash-cgf-884aeccc8129\examples\01_movement\menustate.cpp
+1435457978 source:c:\users\gutob_000\downloads\mflash-cgf-884aeccc8129\examples\01_movement\menustate.cpp
+	<sstream>
+	<string>
 	<iostream>
 	"Game.h"
 	"InputManager.h"

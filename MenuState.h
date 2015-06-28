@@ -34,10 +34,33 @@ class MenuState : public cgf::GameState
     static cgf::Sprite getBackGroundSelecionado(){
         return instance()->getBackGroundSelecionadoPr();
     }
+
+    static void updateFase(){
+        instance()->setFase();
+    }
+
+    static void updatePontuacao(int pont){
+        instance()->setPontuacao(pont);
+    }
+
+    static int getPontuacaoAtualizada(){
+        instance()->getPontuacao();
+    }
+
+    static int getFaseAtual(){
+        instance()->getFase();
+    }
+    static void gameOver(){
+        instance()->setGameOver();
+    }
     // Implement Singleton Pattern
     static MenuState* instance()
     {
         return &m_MenuState;
+    }
+
+    static int getInsano(){
+        return instance()->getInsanoMode();
     }
 
     protected:
@@ -51,7 +74,12 @@ class MenuState : public cgf::GameState
     void handleMenu(cgf::Game* game);
     int getSpriteSelecionadoPr();
     cgf::Sprite getBackGroundSelecionadoPr();
-
+    void setPontuacao(int pontuacao);
+    void setFase();
+    int getPontuacao();
+    int getFase();
+    void setGameOver();
+    int getInsanoMode();
 };
 
 #endif

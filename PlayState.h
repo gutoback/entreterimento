@@ -42,15 +42,28 @@ class PlayState : public cgf::GameState
 
     static PlayState m_PlayState;
 
+    int qtdHits = 3;
+    int qtdTargets = 2;
+    int SPRITE1_X = 5;
+    int SPRITE1_Y = 0;
+    int SPRITE2_X = -5;
+    int SPRITE2_Y = 0;
+    int aux;
+    int alvo1Down = 0;
+    int alvo2Down = 0;
+    float f,g;
     int x, y;
     int dirx, diry;
-    cgf::Sprite playSprite1;
-    cgf::Sprite playSprite2;
-    cgf::Sprite playSprite3;
-    cgf::Sprite player;
+    cgf::Sprite alvo1;
+    cgf::Sprite alvo2;
+    sf::SoundBuffer gunSoundBuffer;
+    sf::Sound gunSound;
+
     sf::RenderWindow* screen;
     cgf::InputManager* im;
+    float rand_FloatRange(float a, float b);
     void setSprites();
+    void handleClick(sf::Event clique,cgf::Game* game);
 };
 
 #endif
