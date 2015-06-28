@@ -52,11 +52,7 @@ int endGame = 0;
 int modoInsano =0;
 void MenuState::init()
 {
-    if (!Font.loadFromFile("C:/Users/gutob_000/Downloads/mflash-cgf-884aeccc8129/bin/data/fonts/arial.ttf"))
-    {
-        std::cerr << "Error loading verdanab.ttf" << std::endl;
-    }
-
+    Font.loadFromFile("data/fonts/arial.ttf");
     Menu1.setFont(Font);
     Menu1.setCharacterSize(20);
     std::stringstream alvos;
